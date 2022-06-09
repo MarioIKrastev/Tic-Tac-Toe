@@ -1,9 +1,9 @@
-import "./GameBoard.css";
-import Box from "./Box";
+import style from "./GameBoard.module.css";
+import Box from "../Box/Box";
 
 const GameBoard = ({ board, onClick }) => {
   return (
-    <div className="gameBoard">
+    <div className={style.gameBoard}>
       {board.map((value, idx) => {
         return (
           <Box

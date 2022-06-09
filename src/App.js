@@ -1,9 +1,9 @@
 import "./App.css";
-import WIN_CONDITIONS from "./components/WinConditions";
+import WIN_CONDITIONS from "./components/utility/WinConditions";
 
-import GameBoard from "./components/GameBoard";
-import ResultBoard from "./components/ResultBoard";
-import ResetBtn from "./components/ResetBtn";
+import GameBoard from "./components/GameBoard/GameBoard";
+import ResultBoard from "./components/ResultBoard/ResultBoard";
+import ResetBtn from "./components/ResetButton/ResetBtn";
 
 import { useState } from "react";
 
