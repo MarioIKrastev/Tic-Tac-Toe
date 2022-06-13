@@ -1,6 +1,8 @@
 import style from "./ResultBoard.module.css";
 
-const ResultBoard = ({ scores, xPlayer }) => {
+import { Players } from "../utility/types";
+
+const ResultBoard = (scores: Players, xPlayer: boolean) => {
   const { playerX, playerO } = scores;
 
   return (
