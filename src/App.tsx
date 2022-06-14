@@ -29,13 +29,11 @@ function App() {
 
     if (winner) {
       if (winner === "X") {
-        let { playerX } = scores;
-        playerX += 1;
-        setScores({ ...scores, playerX });
+        let xPlayerResult = (scores.playerX += 1);
+        setScores({ ...scores, xPlayerResult });
       } else {
-        let { playerO } = scores;
-        playerO += 1;
-        setScores({ ...scores, playerO });
+        let oPlayerResult = (scores.playerO += 1);
+        setScores({ ...scores, oPlayerResult });
       }
     }
 
