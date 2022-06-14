@@ -5,22 +5,25 @@ import GameBoard from "./components/GameBoard/GameBoard";
 import ResultBoard from "./components/ResultBoard/ResultBoard";
 import ResetBtn from "./components/ResetButton/ResetBtn";
 
-import { useState } from "react";
+import { Players } from "./components/utility/types";
+import React, { useState } from "react";
 
 function App() {
-  const [gameBoard, setGameBoard] = useState(Array(9).fill(null));
+  const [gameBoard, setGameBoard] = useState<string[]>(Array(9).fill(null));
   const [xPlayer, setXPlayer] = useState(true);
-  const [scores, setScores] = useState({ playerX: 0, playerO: 0 });
+  const [scores, setScores] = useState<Players>({ playerX: 0, playerO: 0 });
   const [gameOver, setGameOver] = useState(false);
 
-  const boxClickHandler = (boxId) => {
-    const updatedGameBoard = gameBoard.map((value, idx) => {
-      if (idx === boxId) {
-        return xPlayer === true ? "X" : "O";
-      } else {
-        return value;
+  const boxClickHandler = (boxId: number) => {
+    const updatedGameBoard: string[] = gameBoard.map(
+      (value: string, idx: number) => {
+        if (idx === boxId) {
+          return xPlayer === true ? "X" : "O";
+        } else {
+          return value;
+        }
       }
-    });
+    );
 
     const winner = checkWinner(updatedGameBoard);
 
@@ -38,7 +41,7 @@ function App() {
     setXPlayer(!xPlayer);
   };
 
-  const checkWinner = (gameBoard) => {
+  const checkWinner = (gameBoard: number[] | string[]) => {
     for (let i = 0; i < WIN_CONDITIONS.length; i++) {
       const [x, y, z] = WIN_CONDITIONS[i];
 

@@ -1,20 +1,22 @@
 import style from "./ResultBoard.module.css";
 
-const ResultBoard = ({ scores, xPlayer }) => {
-  const { playerX, playerO } = scores;
+import { Players } from "../utility/types";
+
+const ResultBoard = (props: { scores: Players; xPlayer: boolean }) => {
+  const { playerX, playerO } = props.scores;
 
   return (
     <section className={style.scoreBoard}>
       <span
         className={`${style.score} ${style["x-score"]} ${
-          !xPlayer && style.inactive
+          !props.xPlayer && style.inactive
         }`}
       >
         X-Player: {playerX}
       </span>
       <span
         className={`${style.score} ${style["o-score"]} ${
-          xPlayer && style.inactive
+          props.xPlayer && style.inactive
         }`}
       >
         O-Player: {playerO}

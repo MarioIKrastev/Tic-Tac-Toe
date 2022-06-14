@@ -1,7 +1,12 @@
 import style from "./GameBoard.module.css";
 import Box from "../Box/Box";
 
-const GameBoard = ({ board, onClick }) => {
+type Props = {
+  board: string[];
+  onClick: (idx: number) => void;
+};
+
+const GameBoard: React.FC<Props> = ({ board, onClick }) => {
   return (
     <div className={style.gameBoard}>
       {board.map((value, idx) => {
