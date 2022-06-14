@@ -6,10 +6,10 @@ import ResultBoard from "./components/ResultBoard/ResultBoard";
 import ResetBtn from "./components/ResetButton/ResetBtn";
 
 import { Players } from "./components/utility/types";
-import { useState } from "react";
+import React, { useState } from "react";
 
 function App() {
-  const [gameBoard, setGameBoard] = useState(Array(9).fill(null));
+  const [gameBoard, setGameBoard] = useState<string[]>(Array(9).fill(null));
   const [xPlayer, setXPlayer] = useState(true);
   const [scores, setScores] = useState<Players>({ playerX: 0, playerO: 0 });
   const [gameOver, setGameOver] = useState(false);
@@ -60,7 +60,7 @@ function App() {
 
   const resetGameHandler = () => {
     setGameOver(false);
-    setGameBoard(Array(9).fill(""));
+    setGameBoard(Array(9).fill(null));
     setXPlayer(true);
   };
 
